@@ -5,14 +5,23 @@ const cors = require('cors');
 
 const app = express();
 
-// CORS configuration
 const allowedOrigins = [
-  'https://scheduler-app-frontend-t7wo.onrender.com', // your frontend Render URL
+  'https://scheduler-app-frontend-t7wo.onrender.com',
+  'http://localhost:3000'
 ];
+
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true, // if you use cookies or auth headers
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
+app.options('*', cors());
 
 // Middleware
 app.use(express.json());
