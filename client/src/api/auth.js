@@ -1,8 +1,8 @@
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/auth';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 
 export const signup = async (email, password) => {
-  const res = await fetch(`${API_URL}/signup`, {
+  const res = await fetch(`${API_URL}/api/auth/signup`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
@@ -11,7 +11,7 @@ export const signup = async (email, password) => {
 };
 
 export const login = async (email, password) => {
-  const res = await fetch(`${API_URL}/login`, {
+  const res = await fetch(`${API_URL}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
