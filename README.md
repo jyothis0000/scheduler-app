@@ -16,24 +16,29 @@ A full-stack appointment scheduler built with the MERN stack (MongoDB, Express, 
 
 ## 🚀 Getting Started 
 
-### 2. Install Dependencies
+### 1. Install Dependencies
 
 cd client && npm install
 cd server && npm install
 ```
 
 
-### 4. Run the Backend
+### 2. Run the Backend
 
-cd server
-npm start
+node server/server.js
 # Runs on http://localhost:5000
 
-### 5. Run the Frontend
+### 3. Run the Frontend
 
 cd client
 npm start
 # Runs on http://localhost:3000
 
+
+
+
+### 4. Default credential
+username : test@test.com
+pasword : test@123
 
 

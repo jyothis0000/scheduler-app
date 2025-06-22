@@ -28,6 +28,14 @@ export default function Dashboard() {
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
 
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+    // eslint-disable-next-line
+  }, []);
+
   const fetchAppointments = async () => {
     const res = await getAppointments(token);
     setAppointments(Array.isArray(res) ? res : []);

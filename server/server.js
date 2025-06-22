@@ -6,11 +6,7 @@ const cors = require('cors');
 const app = express();
 
 // Middleware
-// ✅ Allow only your frontend
-app.use(cors({
-  origin: 'https://scheduler-app-frontend-t7wo.onrender.com',
-  credentials: true, // Optional: if you're using cookies/auth
-}));
+app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
