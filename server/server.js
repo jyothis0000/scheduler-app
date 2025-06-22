@@ -5,8 +5,16 @@ const cors = require('cors');
 
 const app = express();
 
+// CORS configuration
+const allowedOrigins = [
+  'https://scheduler-app-frontend-t7wo.onrender.com', // your frontend Render URL
+];
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // if you use cookies or auth headers
+}));
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
